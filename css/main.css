@@ -7,14 +7,46 @@
   justify-content: center;
 }
 
-.heading {
-  font-size: 16px;
-  font-weight: 600;
+.background {
+  background: linear-gradient(0.25turn, #174978, #2f5f8a, #46769b);
 }
 
-.button {
-  background-color: #00f63f;
-  padding: 5px 30px;
+.tasks-1 {
+  background-color: #ffffff;
+  height: 70vh;
+  width: 40vw;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 2% 2%;
+}
+
+.heading {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.add-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.input {
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: #000;
+  width: 90%;
+  margin-top: 14px;
+}
+
+.add-icon {
+  padding: 5px;
+  background-color: #d3d3d3;
   cursor: pointer;
-  border-radius: 5px;
+}
+
+.tasks-2 {
+  margin-top: 10px;
 }
