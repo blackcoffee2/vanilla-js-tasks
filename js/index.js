@@ -49,6 +49,7 @@ function uiFromState() {
 
     tasksDiv.appendChild(div);
   }
+  tasksDiv.scrollIntoView(false);
 }
 
 addButton.onclick = function () {
