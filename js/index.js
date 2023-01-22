@@ -6,23 +6,36 @@ const addButton = document.getElementById("add-button");
 const tasks = [];
 
 // Update State
-addTask = function () {
+function addTask() {
   const task = textInput.value;
   if (task) {
     tasks.push(task);
     textInput.value = "";
     uiFromState();
   }
-};
+}
+
+function deleteTask(task) {
+  const _tasks = structuredClone(tasks);
+  tasks.length = 0;
+  for (let i = 0; i < _tasks.length; i++) {
+    const _task = _tasks[i];
+    if (_task != task) {
+      tasks.push(_task);
+    }
+  }
+  uiFromState();
+}
 
 // Build UI from state
-uiFromState = function () {
+function uiFromState() {
   tasksDiv.innerHTML = "";
   for (let i = 0; i < tasks.length; i++) {
     const task = tasks[i];
 
     const div = document.createElement("div");
     div.classList = "task-container";
+    div.state = task;
 
     const p = document.createElement("p");
     p.innerText = task;
@@ -31,17 +44,18 @@ uiFromState = function () {
     const img = document.createElement("img");
     img.src = "./static/images/bin-minus.svg";
     img.classList = "task-img-delete";
+    img.onclick = () => deleteTask(img.parentElement.state);
     div.appendChild(img);
 
     tasksDiv.appendChild(div);
   }
-};
+}
 
 addButton.onclick = function () {
   addTask();
 };
 
-textInput.onkeydown = (e) => {
+textInput.onkeydown = function (e) {
   if (e.key === "Enter") {
     addTask();
   }
